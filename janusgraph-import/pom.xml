@@ -24,12 +24,25 @@
             <groupId>org.janusgraph</groupId>
             <artifactId>janusgraph-core</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.janusgraph</groupId>
-            <artifactId>janusgraph-cassandra</artifactId>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.13.0</version>
         </dependency>
 
+<!--        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-cassandra</artifactId>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.cassandra</groupId>
+            <artifactId>cassandra-all</artifactId>
+            <version>3.11.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.janusgraph</groupId>
+            <artifactId>janusgraph-cql</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.janusgraph</groupId>
@@ -41,7 +54,7 @@
             <artifactId>janusgraph-es</artifactId>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.janusgraph</groupId>
             <artifactId>janusgraph-hadoop-core</artifactId>
             <exclusions>
@@ -50,7 +63,7 @@
                     <artifactId>janusgraph-hbase-core</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.apache.commons</groupId>

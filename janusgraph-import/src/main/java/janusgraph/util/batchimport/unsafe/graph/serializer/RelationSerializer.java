@@ -13,7 +13,7 @@ import org.janusgraph.diskstorage.util.StaticArrayEntry;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 import org.janusgraph.graphdb.database.idhandling.IDHandler;
 import org.janusgraph.graphdb.database.idhandling.VariableLong;
-import org.janusgraph.graphdb.database.serialize.AttributeUtil;
+import org.janusgraph.graphdb.database.serialize.InternalAttributeUtil;
 import org.janusgraph.graphdb.database.serialize.DataOutput;
 import org.janusgraph.graphdb.internal.InternalRelation;
 import org.janusgraph.graphdb.internal.InternalRelationType;
@@ -177,7 +177,7 @@ public class RelationSerializer {
 
     private void writeInline(DataOutput out, PropertyKey inlineKey, Object value, InlineType inlineType) {
 
-        assert inlineType.writeInlineKey() || !AttributeUtil.hasGenericDataType(inlineKey);
+        assert inlineType.writeInlineKey() || !InternalAttributeUtil.hasGenericDataType(inlineKey);
 
         if (inlineType.writeInlineKey()) {
             IDHandler.writeInlineRelationType(out, inlineKey.longId());
@@ -191,7 +191,7 @@ public class RelationSerializer {
     }
 
     private void writePropertyValue(DataOutput out, PropertyKey key, Object value, InlineType inlineType) {
-        if (AttributeUtil.hasGenericDataType(key)) {
+        if (InternalAttributeUtil.hasGenericDataType(key)) {
             assert !inlineType.writeByteOrdered();
             out.writeClassAndObject(value);
         } else {

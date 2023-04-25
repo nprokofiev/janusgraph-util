@@ -14,7 +14,7 @@ import java.security.Permission;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.*;
+import static org.janusgraph.diskstorage.cql.CQLConfigOptions.*;
 import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_HOSTS;
 import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_PORT;
 
@@ -66,7 +66,7 @@ public class CassandraSSTableLoader implements BulkLoader {
         for (int i = 0; i < configuration.maxNumberOfProcessors(); i ++){
             List<String> nodeList = new ArrayList<>(argList);
             String path = storeDir.getAbsolutePath() + File.separator + DataImporter.NODE_IMPORT_NAME +
-                    File.separator + i + File.separator + cassConf.get(CASSANDRA_KEYSPACE) + File.separator + Backend.EDGESTORE_NAME;
+                    File.separator + i + File.separator + cassConf.get(KEYSPACE) + File.separator + Backend.EDGESTORE_NAME;
             nodeList.add(path);
 
             try {
@@ -79,7 +79,7 @@ public class CassandraSSTableLoader implements BulkLoader {
         for (int i = 0; i < configuration.maxNumberOfProcessors(); i ++){
             List<String> relationList = new ArrayList<>(argList);
             String path = storeDir.getAbsolutePath() + File.separator  + DataImporter.EDGE_IMPORT_NAME +
-                    File.separator + i + File.separator + cassConf.get(CASSANDRA_KEYSPACE) + File.separator + Backend.EDGESTORE_NAME;
+                    File.separator + i + File.separator + cassConf.get(KEYSPACE) + File.separator + Backend.EDGESTORE_NAME;
             relationList.add(path);
 
             try {

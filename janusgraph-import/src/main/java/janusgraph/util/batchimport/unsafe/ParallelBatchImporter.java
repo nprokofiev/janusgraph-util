@@ -14,7 +14,7 @@ import org.janusgraph.graphdb.database.StandardJanusGraph;
 
 import java.io.File;
 
-import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.CASSANDRA_KEYSPACE;
+import static org.janusgraph.diskstorage.cql.CQLConfigOptions.*;
 
 
 /**
@@ -58,7 +58,7 @@ public class ParallelBatchImporter extends LifecycleAdapter implements BatchImpo
 
         try (ImportStore janusStore = new ImportStores.BulkImportStoreImpl(graph,
                         storeDir.getPath(),
-                        graph.getConfiguration().getConfiguration().get(CASSANDRA_KEYSPACE), //FIXME user determin Keyspace
+                        graph.getConfiguration().getConfiguration().get(KEYSPACE), //FIXME user determin Keyspace
                         Backend.EDGESTORE_NAME);
              ImportLogic logic = new ImportLogic( storeDir, fileSystem, config, logService,
                       executionMonitor, monitor,graph,idAssigner ,janusStore ) )

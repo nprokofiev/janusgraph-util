@@ -9,7 +9,7 @@ import org.janusgraph.graphdb.database.StandardJanusGraph;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.*;
+import static org.janusgraph.diskstorage.cql.CQLConfigOptions.*;
 
 
 /**
@@ -29,7 +29,7 @@ public abstract class CassandraWriter extends StoreConsumers.KeyColumnValueConsu
     public CassandraWriter(StandardJanusGraph graph) throws BackendException {
         super(graph);
         config = graph.getConfiguration().getConfiguration();
-        this.keySpaceName = config.get(CASSANDRA_KEYSPACE);
+        this.keySpaceName = config.get(KEYSPACE);
         this.compressionClass = config.get(CF_COMPRESSION_TYPE);
 
         if (config.has(COMPACTION_STRATEGY)) {

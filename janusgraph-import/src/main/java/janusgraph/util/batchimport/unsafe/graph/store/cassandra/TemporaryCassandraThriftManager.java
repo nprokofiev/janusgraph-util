@@ -1,14 +1,14 @@
 package janusgraph.util.batchimport.unsafe.graph.store.cassandra;
 
-import org.apache.cassandra.thrift.Cassandra;
-import org.apache.cassandra.thrift.InvalidRequestException;
+/*import org.apache.cassandra.thrift.Cassandra;
+import org.apache.cassandra.thrift.InvalidRequestException;*/
 import org.apache.thrift.TException;
-import org.apache.thrift.protocol.TBinaryProtocol;
+/*import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
-import org.janusgraph.diskstorage.Backend;
+import org.janusgraph.diskstorage.Backend;*/
 import org.janusgraph.diskstorage.BackendException;
 import org.janusgraph.diskstorage.StoreMetaData;
 import org.janusgraph.diskstorage.configuration.Configuration;
@@ -16,10 +16,10 @@ import org.janusgraph.diskstorage.keycolumnvalue.KeyColumnValueStoreManager;
 import org.janusgraph.graphdb.configuration.JanusGraphConstants;
 import org.janusgraph.graphdb.database.StandardJanusGraph;
 
-import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.CASSANDRA_KEYSPACE;
+/*import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.CASSANDRA_KEYSPACE;
 import static org.janusgraph.diskstorage.cassandra.AbstractCassandraStoreManager.PORT_DEFAULT;
 import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_HOSTS;
-import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_PORT;
+import static org.janusgraph.graphdb.configuration.GraphDatabaseConfiguration.STORAGE_PORT;*/
 
 /**
  * @author dengziming (swzmdeng@163.com,dengziming1993@gmail.com)
@@ -35,7 +35,7 @@ public class TemporaryCassandraThriftManager extends CassandraManager {
 
     public TemporaryCassandraThriftManager(StandardJanusGraph graph){
 
-        this.graph = graph;
+        /*this.graph = graph;
         Configuration configuration = graph.getConfiguration().getConfiguration();
         String[] strings = configuration.get(STORAGE_HOSTS);
         this.host = strings[0];
@@ -44,14 +44,14 @@ public class TemporaryCassandraThriftManager extends CassandraManager {
         }else {
             this.port = PORT_DEFAULT;
         }
-        this.keyspaceName = configuration.get(CASSANDRA_KEYSPACE);
+        this.keyspaceName = configuration.get(CASSANDRA_KEYSPACE);*/
 
     }
 
     @Override
     public void reCreateGraphIfExists() throws TException, BackendException {
 
-        TTransport tr = new TFramedTransport(new TSocket(host, port));
+        /*TTransport tr = new TFramedTransport(new TSocket(host, port));
         TProtocol proto = new TBinaryProtocol(tr);
         Cassandra.Client client = new Cassandra.Client(proto);
         tr.open();
@@ -76,6 +76,6 @@ public class TemporaryCassandraThriftManager extends CassandraManager {
         ((KeyColumnValueStoreManager)graph.getBackend().getStoreManager()).openDatabase(Backend.INDEXSTORE_NAME, StoreMetaData.EMPTY);
         ((KeyColumnValueStoreManager)graph.getBackend().getStoreManager()).openDatabase(JanusGraphConstants.JANUSGRAPH_ID_STORE_NAME, StoreMetaData.EMPTY);
 
-        tr.close();
+        tr.close();*/
     }
 }
