@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.8</java-version>
-        <janusgraph-version>0.5.3</janusgraph-version>
+        <janusgraph-version>0.6.3</janusgraph-version>
         <commons.lang3.version>3.3.1</commons.lang3.version>
     </properties>
 
@@ -27,7 +27,7 @@
             <dependency>
                 <groupId>org.apache.tinkerpop</groupId>
                 <artifactId>gremlin-driver</artifactId>
-                <version>3.3.3</version>
+                <version>3.5.5</version>
             </dependency>
 
 

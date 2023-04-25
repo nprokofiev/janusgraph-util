@@ -4,7 +4,7 @@ import janusgraph.util.batchimport.unsafe.helps.Args;
 import janusgraph.util.batchimport.unsafe.idassigner.BulkIdAssigner;
 import janusgraph.util.batchimport.unsafe.input.csv.Header;
 import janusgraph.util.batchimport.unsafe.input.csv.Type;
-import org.apache.commons.configuration.BaseConfiguration;
+import org.apache.commons.configuration2.BaseConfiguration;
 import org.janusgraph.core.Cardinality;
 import org.janusgraph.core.JanusGraph;
 import org.janusgraph.core.JanusGraphFactory;
